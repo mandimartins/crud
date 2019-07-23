@@ -1,8 +1,24 @@
-const findAll = connection => {
+const findAll = (connection, params) => {
   return new Promise((resolve, reject) => {
     const execute = async () => {
-      const resultado = await connection("pessoas").select("*");
-      resolve(resultado);
+      
+      const offset = params.currentPage * params.pageSize
+      const pageSize = params.pageSize
+      
+      const allRegisters = await connection('pessoas').count('* as total')
+      const total = allRegisters[0].total
+
+      const totalPages = Math.ceil( parseFloat((total / pageSize)))
+
+      const results = await connection("pessoas").select("*").limit(pageSize).offset(offset);
+      resolve({
+        data:results,
+        pagination:{
+            pages:totalPages,
+            pageSize,
+            currentPage: parseInt( params.currentPage)
+        }
+      });
     };
     execute().catch(error => {
       console.log(error)

@@ -2,14 +2,14 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const bodyParser = require("body-parser");
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 const connection = require("knex")({
   client: "mysql2",
   connection: {
     host: "localhost",
     user: "root",
-    password: "password",
+    password: "amds121097",
     database: "cadastro"
   }
 });
@@ -36,3 +36,4 @@ app.get("/", (req, res) => {
 app.use("/pessoas", pessoas(dependencies));
 
   app.listen(port, () => console.log("CRUD listening on port" + port));
+  

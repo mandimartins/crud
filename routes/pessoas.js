@@ -20,7 +20,4 @@ const pessoasRouter = ({connection}) =>{
    
     return router
 }
-
-
-
 module.exports = pessoasRouter
