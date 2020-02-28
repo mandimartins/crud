@@ -7,7 +7,7 @@ Projeto desenvolvido para mostrar a técnica de paginação
 Logica para obter a quantidade de paginas...
 
 ```
-  Quantidade-de-dados / Quantidade-de-dados-mostrada-por-pagina = Quantidade-de-paginas
+  Quantidade-de-dados / Quantidade-de-dados-mostrados-por-pagina = Quantidade-de-paginas
 ```
 
 ### Prerequisites
